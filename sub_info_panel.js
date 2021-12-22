@@ -34,8 +34,9 @@ Sub_info = script-name=Sub_info,update-interval=600
 
   let used = info.download + info.upload;
   let total = info.total;
+  let available = info.total - info.download - info.upload;
   let expire = args.expire || info.expire;
-  let content = [`用量：${bytesToSize(used)} | ${bytesToSize(total)}`];
+  let content = [`可用：${bytesToSize(available)}`];
 
   if (resetDayLeft) {
     content.push(`重置：剩余${resetDayLeft}天`);
